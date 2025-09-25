@@ -1,0 +1,52 @@
+//   const pag = document.getElementById('pagination2');
+//   console.log(pag);
+//  import Pagination from  'tui-pagination'; 
+// //  import tui from  'tui-pagination'; 
+ 
+//    var pagination2 = new tui.Pagination(document.getElementById('pagination2'), {
+//         totalItems: 10,
+//         itemsPerPage: 1,
+//         visiblePages: 4,
+//         centerAlign: true
+//     });
+
+// const bo = document.querySelector('.boobo');
+// console.log(bo);
+
+import axios from 'axios';
+import {  renderLayout } from './js/render.js';
+// console.log(renderLayout);
+
+// const APIKey = '3af5fd0b838bf2a259ff06cb75968037';
+const bearer = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYWY1ZmQwYjgzOGJmMmEyNTlmZjA2Y2I3NTk2ODAzNyIsIm5iZiI6MTY3MDIyNjI2NC4xMzIsInN1YiI6IjYzOGRhMTU4MTI4M2U5MDA5NzY3Njg3OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LbbNBAE2uu7qSjmBFjXYtTYw99nAa-BxDgIdgH9cD08';
+const BASE_URL = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US&page=3';
+// const BASE_URL_people = 'https://api.themoviedb.org/3/trending/person/day?language=en-US';
+// const BASE_URL_collections = 'https://api.themoviedb.org/3/collection/collection_id?language=en-US';
+
+
+
+export async function getAPIdata(){
+    try{
+        await axios.get(BASE_URL, {
+                          headers: {
+                            'Content-Type': 'application/json',
+                            Authorization: bearer,
+                                    }
+ })
+                  .then(response => {
+                    //   console.log(response.data.results)
+                      // console.log(response.data.results[0])
+                      // console.log(response.data.results[0].id)
+                      // const mess = JSON.stringify(response.data.results);
+                      localStorage.setItem("mess", JSON.stringify(response.data.results));
+                      renderLayout(response.data.results);
+                    }
+)
+ 
+    }catch(error){
+    console.log(error);
+    }
+}
+
+
+getAPIdata();
