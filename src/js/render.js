@@ -22,7 +22,7 @@ export function renderLayout(arr){
         `
 }).join('');
 
- galleryRef.insertAdjacentHTML('beforeend', ren);
+ galleryRef.innerHTML = ren;
 }
 
  galleryRef.addEventListener('click', modalShow);

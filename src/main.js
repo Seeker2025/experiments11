@@ -1,6 +1,9 @@
 //   const pag = document.getElementById('pagination2');
 //   console.log(pag);
-//  import Pagination from  'tui-pagination'; 
+ import Pagination from  'tui-pagination'; 
+ import { options,
+          container
+ } from './js/pagination.js';
 // //  import tui from  'tui-pagination'; 
  
 //    var pagination2 = new tui.Pagination(document.getElementById('pagination2'), {
@@ -19,22 +22,33 @@ import {  renderLayout } from './js/render.js';
 
 // const APIKey = '3af5fd0b838bf2a259ff06cb75968037';
 const bearer = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYWY1ZmQwYjgzOGJmMmEyNTlmZjA2Y2I3NTk2ODAzNyIsIm5iZiI6MTY3MDIyNjI2NC4xMzIsInN1YiI6IjYzOGRhMTU4MTI4M2U5MDA5NzY3Njg3OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LbbNBAE2uu7qSjmBFjXYtTYw99nAa-BxDgIdgH9cD08';
-const BASE_URL = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US&page=3';
+const BASE_URL = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
 // const BASE_URL_people = 'https://api.themoviedb.org/3/trending/person/day?language=en-US';
 // const BASE_URL_collections = 'https://api.themoviedb.org/3/collection/collection_id?language=en-US';
 
-
-
-export async function getAPIdata(){
+export async function getAPIdata(onePage=1){
     try{
-        await axios.get(BASE_URL, {
+        await axios.get(`${BASE_URL}&page=${onePage}`, {
                           headers: {
                             'Content-Type': 'application/json',
                             Authorization: bearer,
                                     }
  })
-                  .then(response => {
-                    //   console.log(response.data.results)
+                                      .then(response => {
+                                          // console.log(response.data.results)
+                                          // console.log(response.data)
+                                          const { results, total_results, total_pages }=response.data;
+                                          console.log(results, total_results, total_pages);
+                                          let totalPages = total_pages;
+        if (onePage < totalPages) {
+          options.totalItems = totalPages;
+          options.page = onePage;
+          const pagination = new Pagination(container, options);
+          pagination.on('afterMove', function (event) {
+          onePage = event.page;
+            getAPIdata(onePage);
+        });
+      }
                       // console.log(response.data.results[0])
                       // console.log(response.data.results[0].id)
                       // const mess = JSON.stringify(response.data.results);
