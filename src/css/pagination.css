@@ -10,7 +10,8 @@
     display: flex;
 }
 
-.box03{
+.button_orange{
+    margin: 5px;
     box-sizing: border-box;
     width: 36px;
     height: 36px;
@@ -31,28 +32,67 @@
    
 }
 
-.box04{
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgb(0, 200, 255);
-    color: rgb(0, 221, 255);
-}
-
-.box05{
-    width: 20px;
-    height: 20px;
-    border: 1px solid rgb(255, 191, 0);
-    color: rgb(255, 255, 0);
-}
-
-.box06{
+.buttons_other{
+    margin: 5px;
+    box-sizing: border-box;
+    width: 36px;
+    height: 36px;
+    color: #fff;
+  
+    border-radius: 5px;
+    margin-left: 0;
+    padding: 9px 0;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    background: #2f313a;
+    border-color: #3a392f;
    
-    border: 1px solid rgb(51, 175, 2);
-    color: rgb(85, 255, 0);
 }
 
-.box07{
+.arrow{
+   margin: 5px;
+    box-sizing: border-box;
+    width: 36px;
+    height: 36px;
+    color: #fff;
+  
+    border-radius: 5px;
+    margin-left: 0;
+    padding: 9px 0;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    background: #7d94fb;
+    border-color: #2f313a;
+}
+
+.dots{
    
-    border: 1px solid rgb(143, 2, 175);
-    color: rgb(204, 0, 255);
+    margin: 5px;
+    box-sizing: border-box;
+    width: 36px;
+    height: 36px;
+    color: #fff;
+  
+    border-radius: 5px;
+    margin-left: 0;
+    padding: 9px 0;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    background: #2f313a;
+    border-color: #2f313a;
 }
