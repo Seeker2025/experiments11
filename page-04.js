@@ -1,0 +1,2 @@
+import"./assets/modulepreload-polyfill-B5Qt9EMX.js";/* empty css                      */console.log("page 04");class l{constructor(o,n){this.man=o,this.woman=n}}const m=new l("Pete","Rebecca");console.log(m);const a=2100;class i{constructor({man:o,woman:n,num01:c,num02:t}){this.man=o,this.woman=n,this.num01=c,this.num02=t}conc(){return console.log(a),this.num01+this.num02}}const e=new i({man:"Pete",woman:"Rebecca",num01:1,num02:2});console.log(e);console.log(e.conc());
+//# sourceMappingURL=page-04.js.map

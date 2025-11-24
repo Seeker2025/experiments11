@@ -1,0 +1,2 @@
+import"./assets/modulepreload-polyfill-B5Qt9EMX.js";/* empty css                      */console.log("page 03");let o=[{title:"Peace",id:1},{title:"World",id:2},{title:"people",id:3}];console.log(o);const l={id:1},i={title:"max",id:5},t=i;console.log(o.some(e=>e.id===l.id));o.some(e=>e.id===l.id)?(console.log("Hi!"),o=o.filter(e=>e.id!==l.id),console.log(o)):o.push(t);console.log(o);
+//# sourceMappingURL=page-03.js.map
