@@ -53,4 +53,13 @@ btn03.addEventListener('click', ()=>{
 })
 
 
+const arr00055 = [
+    {line: 'text'},
+]
+
+console.log(arr00055[0].line);          //text
+console.log(arr00055[0].line02);        //undefined
+console.log(arr00055[1]?.line);         //undefined
+
+
 
