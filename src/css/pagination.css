@@ -59,7 +59,7 @@
     box-sizing: border-box;
     width: 36px;
     height: 36px;
-    color: #fff;
+    color: #fa2222;
   
     border-radius: 5px;
     margin-left: 0;
@@ -95,4 +95,12 @@
     text-align: center;
     background: #2f313a;
     border-color: #2f313a;
+}
+
+.tui-ico-111{
+    color: rgb(140, 255, 0);
+}
+
+.tui-ico-222{
+    color: rgb(255, 162, 0);
 }

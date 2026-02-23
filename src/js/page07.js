@@ -1,4 +1,4 @@
-console.log('page07');
+console.log('page07  Switch');
 
 const switchInp = document.querySelector('input');
 console.log(switchInp);

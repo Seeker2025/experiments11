@@ -14,6 +14,7 @@ export const options = {
              '<a href="#" class="arrow tui-page-btn tui-{{type}}">' +
                  '<span class="tui-ico-{{type}}">{{type}}</span>' +
              '</a>',
+         
          disabledMoveButton:
              '<span class="arrow tui-page-btn tui-is-disabled tui-{{type}}">' +
                  '<span class="tui-ico-{{type}}">{{type}}</span>' +
@@ -21,6 +22,9 @@ export const options = {
          moreButton:
              '<a href="#" class="dots tui-page-btn tui-{{type}}-is-ellip">' +
                  '<span class="tui-ico-ellip">. . .</span>' +
-             '</a>'
+             '</a>',
+
+             
+
      }
     };
