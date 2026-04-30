@@ -1,0 +1,2 @@
+import"./assets/modulepreload-polyfill-B5Qt9EMX.js";/* empty css                      */console.log("page09 splice");const o=["Petro","Vladimir","Viсtor","Leonid"],r=o.splice(2,1,"Elon");console.log(o);console.log(r);const l=["Petro","Vladimir","Elon","Leonid"],s=l.splice(2,0,"Mark");console.log(l);console.log(s);const e=["red","green","blue"];e.splice(2,0,"purple");console.log(e);
+//# sourceMappingURL=page-09.js.map
