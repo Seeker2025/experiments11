@@ -92,6 +92,9 @@ toName({...isObg04});//////Lena Gena Pete
 
 //console.log({...isObg04});//{name: 'Lena', name02: 'Gena', name03: 'Pete'}
 
-
-
+function multiply(...args){
+    console.log(args);
+ };
+//multiply(1, 2, 3); ////// [1, 2, 3]
+ 
 
