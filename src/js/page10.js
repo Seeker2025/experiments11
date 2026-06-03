@@ -96,5 +96,14 @@ function multiply(...args){
     console.log(args);
  };
 //multiply(1, 2, 3); ////// [1, 2, 3]
+
+
+
+
+
+
+console.log(null || (2 && 3) || 4); ////// 3
+
+
  
 
