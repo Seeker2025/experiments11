@@ -1,4 +1,4 @@
-console.log('page 10, Arguments, Rest');
+console.log('page 10, Arguments, Rest, Promise');
 
 const num = 2;
 const fru = 3;
@@ -103,6 +103,31 @@ function multiply(...args){
 
 
 console.log(null || (2 && 3) || 4); ////// 3
+
+
+
+
+
+
+////// Promise
+
+const promise = new Promise((res, rej)=>{
+    setTimeout(()=>{
+        const val = Math.random();
+        if(val > .5) res("Yeeees");
+        else rej("Noooo");
+
+    }, 2000)
+});
+
+console.log(promise);
+
+promise.then((resp)=>{console.log(resp)})
+.catch((ff)=>{console.log(ff)})
+.finally(()=>{console.log('whoa!');
+});
+
+
 
 
  
