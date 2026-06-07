@@ -1,4 +1,6 @@
-console.log('page 10, Arguments, Rest, Promise');
+import axios from 'axios'
+
+console.log('page 10, Arguments, Rest, Promise, async/await');
 
 const num = 2;
 const fru = 3;
@@ -111,21 +113,72 @@ console.log(null || (2 && 3) || 4); ////// 3
 
 ////// Promise
 
-const promise = new Promise((res, rej)=>{
-    setTimeout(()=>{
-        const val = Math.random();
-        if(val > .5) res("Yeeees");
-        else rej("Noooo");
+// const promise = new Promise((res, rej)=>{
+//     setTimeout(()=>{
+//         const val = Math.random();
+//         if(val > .5) res("Yeeees");
+//         else rej("Noooo");
 
-    }, 2000)
-});
+//     }, 2000)
+// });
 
-console.log(promise);
+// console.log(promise);
 
-promise.then((resp)=>{console.log(resp)})
-.catch((ff)=>{console.log(ff)})
-.finally(()=>{console.log('whoa!');
-});
+// promise.then((resp)=>{console.log(resp)})
+// .catch((ff)=>{console.log(ff)})
+// .finally(()=>{console.log('whoa!');
+// });
+
+
+
+
+
+//  const fetchUsers = async () => {
+//  	const response = await axios.get("https://jsonplaceholder.typicode.com/users");
+//  	console.log(response.data);
+//  };
+
+// const booo = fetchUsers();
+// console.log(booo);
+
+
+
+
+
+
+//  const fetchUsers = async () => {
+//  	const response = await axios.get("https://jsonplaceholder.typicode.com/users");
+//  	return response.data;
+//  };
+
+//  fetchUsers()
+//  	.then(users => console.log(users));
+
+const foo02 = async () => {
+    try {
+        const promiseAwait = await new Promise((res, rej) => {
+            setTimeout(() => {
+                const val = Math.random();
+
+                if (val > 0.5) {
+                    res("Yeeees");
+                } else {
+                    rej("Noooo");
+                }
+            }, 2000);
+        });
+
+        console.log(promiseAwait);
+
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+foo02();
+
+
+
 
 
 
