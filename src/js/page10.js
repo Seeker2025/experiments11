@@ -182,6 +182,32 @@ foo02();
 
 
 
+////// Spread Operator
+const tooObg = {
+    a: 1,
+    b: 2,
+};
+
+function tuSum({a, b}){
+ return a + b;
+};
+
+//console.log(tuSum({a: 5, b: 2})); ////// 7
+//console.log(tuSum({...tooObg}));  ////// 3
+
+////// Rest
+function tuSum02(...rest){
+ return rest[0] + rest[1];
+};
+console.log( tuSum02(5, 10));
+
+
+
+
+
+
+
+
 
  
 
