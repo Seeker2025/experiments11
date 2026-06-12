@@ -199,6 +199,7 @@ function tuSum({a, b}){
 function tuSum02(...rest){
  return rest[0] + rest[1];
 };
+/////// 5 и 10 будут собраны в массив
 console.log( tuSum02(5, 10));
 
 
