@@ -168,7 +168,7 @@ const foo02 = async () => {
             }, 2000);
         });
 
-        console.log(promiseAwait);
+        // console.log(promiseAwait);
 
     } catch (error) {
         console.log(error);
@@ -201,6 +201,31 @@ function tuSum02(...rest){
 };
 /////// 5 и 10 будут собраны в массив
 console.log( tuSum02(5, 10));
+
+
+
+
+//// Складываем два массива и получаем строку
+const srr0222 = ['1', 2 ,false];
+const srr0223 = [4, 5 ,true];
+console.log(srr0222);
+console.log(srr0223);
+const aaad = srr0222 + srr0223
+console.log(aaad);         ///// 1,2,false4,5,true
+console.log(typeof(aaad)); ///// string
+
+
+
+///Это удалить
+///Rest
+function fooRest(...rest){
+    return rest[0] + rest[1];
+}
+
+console.log(fooRest(1, 5));
+
+
+
 
 
 
