@@ -1,6 +1,9 @@
 import axios from 'axios'
 
-console.log('page 10, Arguments, Rest, Promise, async/await');
+console.log('page 10, Arguments, Rest, Promise, async/await, setState');
+/*
+Здесь объясненеи ChatGPT про setState
+*/
 
 const num = 2;
 const fru = 3;
@@ -223,6 +226,182 @@ function fooRest(...rest){
 }
 
 console.log(fooRest(1, 5));
+
+/*
+
+toDelete = id => {
+    this.setState(prevState => ({
+        contacts: prevState.contacts.filter(
+            itm => itm.id !== id
+        )
+    }));
+}
+
+что делает метод setState(prevState =>({}))
+зачем он здесь нужен?
+
+Хороший вопрос. Здесь используется функциональная форма setState, и она нужна не случайно.
+
+Разберём код:
+
+toDelete = id => {
+    this.setState(prevState => ({
+        contacts: prevState.contacts.filter(
+            itm => itm.id !== id
+        )
+    }));
+}
+Что делает setState?
+
+setState изменяет состояние (state) компонента.
+
+Например, если сейчас состояние такое:
+
+state = {
+    contacts: [
+        { id: 1, name: "John" },
+        { id: 2, name: "Kate" },
+        { id: 3, name: "Bob" }
+    ]
+}
+
+то после вызова
+
+this.setState({
+    contacts: [...]
+});
+
+React обновит state.contacts и перерисует компонент.
+
+Почему здесь используется функция?
+
+setState можно вызвать двумя способами.
+
+1. Передать объект
+this.setState({
+    contacts: newContacts
+});
+2. Передать функцию
+this.setState(prevState => ({
+    contacts: ...
+}));
+
+Эта функция получает предыдущее состояние (prevState).
+
+Что такое prevState?
+
+Это состояние до обновления.
+
+Например:
+
+prevState = {
+    contacts: [
+        { id: 1, name: "John" },
+        { id: 2, name: "Kate" },
+        { id: 3, name: "Bob" }
+    ]
+}
+
+Затем выполняется
+
+prevState.contacts.filter(...)
+Что делает filter?
+prevState.contacts.filter(
+    itm => itm.id !== id
+)
+
+Если удалить пользователя с id = 2, то получится
+
+Было:
+
+[
+    { id: 1, name: "John" },
+    { id: 2, name: "Kate" },
+    { id: 3, name: "Bob" }
+]
+
+После filter:
+
+[
+    { id: 1, name: "John" },
+    { id: 3, name: "Bob" }
+]
+
+Именно этот новый массив возвращается в setState.
+
+Почему нельзя написать так?
+
+Можно написать:
+
+this.setState({
+    contacts: this.state.contacts.filter(
+        itm => itm.id !== id
+    )
+});
+
+Иногда это будет работать.
+
+Но React не обновляет состояние мгновенно.
+
+Например:
+
+this.setState({ count: this.state.count + 1 });
+this.setState({ count: this.state.count + 1 });
+
+Можно ожидать:
+
+0 → 1 → 2
+
+Но получится:
+
+0 → 1
+
+Потому что оба вызова читают одно и то же старое значение this.state.count.
+
+Поэтому используют prevState
+this.setState(prevState => ({
+    count: prevState.count + 1
+}));
+
+this.setState(prevState => ({
+    count: prevState.count + 1
+}));
+
+Теперь React гарантирует, что второй вызов получит уже обновлённое состояние.
+
+Результат:
+
+0 → 1 → 2
+Почему именно в toDelete используют prevState?
+
+Потому что новое значение contacts зависит от предыдущего значения contacts.
+
+React рекомендует использовать функциональную форму setState, когда новое состояние
+вычисляется на основе предыдущего. Это безопаснее и предотвращает ошибки, если несколько
+обновлений состояния происходят подряд.
+
+Итог
+this.setState(prevState => ({
+    contacts: prevState.contacts.filter(
+        itm => itm.id !== id
+    )
+}));
+
+означает:
+
+Взять текущее (актуальное) состояние prevState.
+Создать новый массив contacts, исключив элемент с нужным id.
+Вернуть объект:
+{
+    contacts: новый_массив
+}
+React обновит состояние и заново отрисует компонент.
+
+Именно функциональная форма setState гарантирует, что вычисления будут основаны на
+последнем актуальном состоянии, даже если React объединяет несколько обновлений или
+выполняет их асинхронно.
+
+*/
 
 
 

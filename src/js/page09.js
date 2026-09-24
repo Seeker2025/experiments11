@@ -28,4 +28,8 @@ const colors = ["red", "green", "blue"];
 colors.splice(2, 0, "purple");
 console.log(colors); ////// ["red", "green", "purple", "blue"];
 
+const fruit = 'яблоко, банан, апельсин';
+const arr022 = fruit.split(', ')[0];
+console.log(arr022);
+
 
